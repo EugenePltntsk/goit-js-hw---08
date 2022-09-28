@@ -10,25 +10,23 @@ const textAreaEl = document.querySelector('.feedback-form textarea');
 const formEl = document.querySelector('.feedback-form');
 // console.log(formEl);
 
-
-
 const onChange = event => {
-  const email = event.currentTarget.elements.email.value;
+  if (event.currentTarget) {
+    const email = event.currentTarget.elements.email.value;
   const message = event.currentTarget.elements.message.value;
 
   const infoObj = {
     email,
     message,
   };
-  console.log(infoObj);
+  
+  
 
   localStorage.setItem(key, JSON.stringify(infoObj));
+  }
 };
 
-formEl.addEventListener('input', throttle(onChange, 500));
-
-
-
+formEl.addEventListener('input', throttle(onChange, 100));
 
 const checkFoo = () => {
   const saveData = localStorage.getItem(key);
@@ -42,14 +40,18 @@ const checkFoo = () => {
 
 checkFoo();
 
-
 formEl.addEventListener('submit', onSubmit);
 
-function onSubmit(event)  {
+function onSubmit(event) {
   event.preventDefault();
+  const email = event.currentTarget.elements.email.value;
+  const message = event.currentTarget.elements.message.value;
+
+  const infoObj = {
+    email,
+    message,
+  };
+  console.log(infoObj);
   event.target.reset();
   localStorage.removeItem(key);
-};
-
-
-
+}

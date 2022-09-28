@@ -12,9 +12,9 @@ const ourUl = document.querySelector('.gallery');
 
 const gallery = galleryItems
   .map(item => {
-    return `<li><a class="gallery__item" href="${item.original}">
+    return `<a class="gallery__item" href="${item.original}">
   <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
-</a></li>`;
+</a>`;
   })
   .join('');
 

@@ -9,7 +9,7 @@ player.on('timeupdate',
 }, 1000)
    );
 
-const time = localStorage.getItem('videoplayer-current-time');
+const time = localStorage.getItem('videoplayer-current-time') || 0;
 
 
 
