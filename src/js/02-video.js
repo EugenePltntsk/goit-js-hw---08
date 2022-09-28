@@ -9,13 +9,12 @@ player.on('timeupdate',
 }, 1000)
    );
 
-const time = localStorage.getItem('videoplayer-current-time') || 0;
+const time = localStorage.getItem('videoplayer-current-time') ?? 0;
 
 
+//?? перевірка лише на null or undefined
 
 
-
-player
-  .setCurrentTime(time);
+player.setCurrentTime(time);
 
 
